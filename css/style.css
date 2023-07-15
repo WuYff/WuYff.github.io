@@ -1,5 +1,6 @@
 :root {
-  --cardinal        : #A31F34;
+  --cardinal        : #858484;
+  --orange        : #e68a00;
   --very-light-gray : #F1F1F1;
   --light-gray      : #C2C0BF;
   --dark-gray       : #8A8B8C;
@@ -12,7 +13,7 @@
 
 body {
   font-family : Tahoma, 'Helvetica Neue', Ubuntu, Arial, PingFang, SimHei, sans-serif;
-  font-size   : 14px;
+  font-size   : 15px;
   line-height : 1.8em;
   color       : black;
   font-weight : 300;
@@ -33,12 +34,12 @@ body .row {
 }
 
 a {
-  color           : var(--cardinal);
+  color           : var(--orange);
   text-decoration : none;
 }
 
 a:hover {
-  color           : var(--cardinal);
+  color           : var(--orange);
   text-decoration : underline;
 }
 
