@@ -1,10 +1,11 @@
 :root {
-  --cardinal        : #5b5c66;
-  --orange        : #e68a00;
   --page-bg         : #ffffff;
-  --very-light-gray : #F1F1F1;
-  --light-gray      : #C2C0BF;
-  --dark-gray       : #8A8B8C;
+  --text-primary    : #1f1f1f;
+  --text-secondary  : #6b7280;
+  --link-color      : #374151;
+  --link-hover      : #111827;
+  --surface-muted   : #f3f4f6;
+  --surface-border  : #e5e7eb;
 }
 
 :root {
@@ -16,7 +17,7 @@ body {
   font-family : Tahoma, 'Helvetica Neue', Ubuntu, Arial, PingFang, SimHei, sans-serif;
   font-size   : 15px;
   line-height : 1.8em;
-  color       : black;
+  color       : var(--text-primary);
   font-weight : 300;
   background  : var(--page-bg);
   margin-top  : 50px;
@@ -35,12 +36,12 @@ body .row {
 }
 
 a {
-  color           : var(--orange);
+  color           : var(--link-color);
   text-decoration : none;
 }
 
 a:hover {
-  color           : var(--orange);
+  color           : var(--link-hover);
   text-decoration : underline;
 }
 
@@ -73,7 +74,7 @@ a:hover {
 
 nav {
   background-color : var(--page-bg);
-  border-bottom    : 1px solid var(--very-light-gray);
+  border-bottom    : 1px solid var(--surface-border);
 }
 
 .navbar {
@@ -93,7 +94,12 @@ nav {
 
 .navbar-light .navbar-brand,
 .navbar-light .navbar-nav .nav-link {
-  color : black;
+  color : var(--text-primary);
+}
+
+.navbar-light .navbar-brand:hover,
+.navbar-light .navbar-nav .nav-link:hover {
+  color : var(--link-hover);
 }
 
 .navbar-toggler {
@@ -108,7 +114,13 @@ nav {
 }
 
 .navbar .dropdown-menu {
-  font-size : 14px;
+  font-size    : 14px;
+  border-color : var(--surface-border);
+}
+
+.navbar .dropdown-item:hover {
+  color            : var(--text-primary);
+  background-color : var(--surface-muted);
 }
 
 @media (max-width: 575.98px) {
@@ -170,17 +182,18 @@ nav {
 
 .home-wrapper .social-icon li a {
   display       : block;
-  color         : black;
+  color         : var(--text-secondary);
   font-size     : 12px;
   width         : 30px;
   height        : 30px;
   text-align    : center;
   border-radius : 2px;
-  border        : 2px solid var(--very-light-gray);
+  border        : 2px solid var(--surface-border);
 }
 
 .home-wrapper .social-icon li a:hover {
-  border-color : var(--light-gray);
+  color        : var(--text-primary);
+  border-color : var(--text-secondary);
 }
 
 .home-wrapper .interests {
@@ -200,31 +213,31 @@ nav {
  *------------------*/
 
 .pub-wrapper .title a {
-  color       : black;
+  color       : var(--text-primary);
   font-weight : var(--serif-weight);
   font-family : var(--serif-font);
   font-size   : 16px;
 }
 
 .pub-wrapper .title a:hover {
-  color : black;
+  color : var(--text-primary);
 }
 
 .pub-wrapper .authors {
-  color : var(--light-gray);
+  color : var(--text-secondary);
 }
 
 .pub-wrapper .authors a {
-  color           : var(--light-gray);
+  color           : var(--text-secondary);
   text-decoration : underline;
 }
 
 .pub-wrapper .authors a:hover {
-  color : var(--dark-gray);
+  color : var(--link-hover);
 }
 
 .pub-wrapper .authors me {
-  color : black;
+  color : var(--text-primary);
 }
 
 .pub-wrapper .figure img {
@@ -254,7 +267,7 @@ nav {
 
 .exp-wrapper a,
 .exp-wrapper a:hover {
-  color : black;
+  color : var(--text-primary);
 }
 
 .exp-wrapper .info {
@@ -329,5 +342,5 @@ nav {
 }
 
 .exp-wrapper .location {
-  color : var(--light-gray);
+  color : var(--text-secondary);
 }
