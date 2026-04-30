@@ -1,6 +1,7 @@
 :root {
   --cardinal        : #5b5c66;
   --orange        : #e68a00;
+  --page-bg         : #ffffff;
   --very-light-gray : #F1F1F1;
   --light-gray      : #C2C0BF;
   --dark-gray       : #8A8B8C;
@@ -17,7 +18,7 @@ body {
   line-height : 1.8em;
   color       : black;
   font-weight : 300;
-  background  : white;
+  background  : var(--page-bg);
   margin-top  : 50px;
 }
 
@@ -71,7 +72,8 @@ a:hover {
  *------------------*/
 
 nav {
-  background-color : var(--cardinal);
+  background-color : var(--page-bg);
+  border-bottom    : 1px solid var(--very-light-gray);
 }
 
 .navbar {
@@ -89,9 +91,9 @@ nav {
   font-family : var(--serif-font);
 }
 
-.navbar-dark .navbar-brand,
-.navbar-dark .navbar-nav .nav-link {
-  color : white;
+.navbar-light .navbar-brand,
+.navbar-light .navbar-nav .nav-link {
+  color : black;
 }
 
 .navbar-toggler {
