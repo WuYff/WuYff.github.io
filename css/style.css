@@ -89,7 +89,7 @@ a:hover {
 
 .floating-object {
   position       : absolute;
-  color          : rgba(107, 114, 128, 0.18);
+  color          : rgba(107, 114, 128, 0.24);
   font-size      : 42px;
   line-height    : 1;
   user-select    : none;
@@ -106,7 +106,7 @@ a:hover {
 }
 
 .floating-object.is-reacting {
-  color   : rgba(107, 114, 128, 0.3);
+  color   : rgba(107, 114, 128, 0.36);
   filter  : none;
   opacity : 1;
 }
@@ -124,7 +124,7 @@ a:hover {
   left           : 6%;
   font-size      : 54px;
   animation-name : float-drift-left;
-  animation-duration : 24s;
+  animation-duration : 18s;
 }
 
 .floating-laptop {
@@ -132,7 +132,7 @@ a:hover {
   right             : 8%;
   font-size         : 56px;
   animation-name    : float-drift-right;
-  animation-duration : 22s;
+  animation-duration : 17s;
 }
 
 .floating-chip {
@@ -140,7 +140,7 @@ a:hover {
   left              : 12%;
   font-size         : 44px;
   animation-name    : float-drift-right;
-  animation-duration : 26s;
+  animation-duration : 20s;
   animation-delay   : -8s;
 }
 
@@ -148,7 +148,7 @@ a:hover {
   top               : 42%;
   right             : 18%;
   font-size         : 40px;
-  animation-duration : 19s;
+  animation-duration : 15s;
   animation-delay   : -5s;
 }
 
@@ -157,7 +157,7 @@ a:hover {
   right             : 10%;
   font-size         : 30px;
   animation-name    : float-drift-left;
-  animation-duration : 21s;
+  animation-duration : 16s;
   animation-delay   : -12s;
 }
 
@@ -165,7 +165,7 @@ a:hover {
   top               : 58%;
   left              : 22%;
   font-size         : 36px;
-  animation-duration : 23s;
+  animation-duration : 17s;
   animation-delay   : -15s;
 }
 
@@ -175,13 +175,13 @@ a:hover {
     transform : translate3d(0, 0, 0) rotate(0deg);
   }
   25% {
-    transform : translate3d(10px, -16px, 0) rotate(3deg);
+    transform : translate3d(18px, -26px, 0) rotate(4deg);
   }
   50% {
-    transform : translate3d(20px, -30px, 0) rotate(5deg);
+    transform : translate3d(34px, -46px, 0) rotate(7deg);
   }
   75% {
-    transform : translate3d(-6px, -10px, 0) rotate(-3deg);
+    transform : translate3d(-14px, -18px, 0) rotate(-5deg);
   }
 }
 
@@ -191,13 +191,13 @@ a:hover {
     transform : translate3d(0, 0, 0) rotate(-4deg);
   }
   25% {
-    transform : translate3d(-12px, -14px, 0) rotate(-1deg);
+    transform : translate3d(-20px, -24px, 0) rotate(-2deg);
   }
   50% {
-    transform : translate3d(-26px, -26px, 0) rotate(4deg);
+    transform : translate3d(-40px, -42px, 0) rotate(6deg);
   }
   75% {
-    transform : translate3d(8px, -8px, 0) rotate(-6deg);
+    transform : translate3d(16px, -16px, 0) rotate(-8deg);
   }
 }
 
@@ -207,13 +207,13 @@ a:hover {
     transform : translate3d(0, 0, 0) rotate(3deg);
   }
   25% {
-    transform : translate3d(14px, -10px, 0) rotate(5deg);
+    transform : translate3d(22px, -18px, 0) rotate(6deg);
   }
   50% {
-    transform : translate3d(28px, -24px, 0) rotate(-4deg);
+    transform : translate3d(42px, -36px, 0) rotate(-5deg);
   }
   75% {
-    transform : translate3d(4px, -6px, 0) rotate(1deg);
+    transform : translate3d(10px, -12px, 0) rotate(2deg);
   }
 }
 
