@@ -46,6 +46,7 @@
     font-family: "Inter Tight", sans-serif;
     font-weight: 800;
     letter-spacing: -0.055em;
+    word-spacing: 0.2em;
 }
 .hero-name { font-size: clamp(3.2rem, 8.5vw, 5.4rem); line-height: 0.95; }
 .topbar-name { font-size: 1.1rem; letter-spacing: -0.04em; }
@@ -83,5 +84,3 @@ main { counter-reset: sec; }
 
 .hero-portrait img,
 .pub-thumb img { border-radius: 0; }
-.pub-thumb img { filter: grayscale(1); transition: filter 400ms var(--ease); }
-.pub:hover .pub-thumb img { filter: none; }
