@@ -121,21 +121,63 @@ main { counter-reset: sec; }
     .pub-badge::after { display: none; }
 }
 
-/* Background robot: drifts slowly around the viewport behind the content. */
+/* Background robot: drifts slowly around the viewport. Only the robot itself
+   catches clicks; everything around it stays clickable. */
 .bg-robot {
     position: fixed;
     inset: 0 auto auto 0;
-    z-index: 0;
+    z-index: 2;
     pointer-events: none;
-    color: var(--accent);
-    opacity: 0.14;
     animation: robot-drift 60s ease-in-out infinite;
 }
 .bg-robot-bob {
+    position: relative;
     font-size: 4.5rem;
     animation: robot-bob 4s ease-in-out infinite;
 }
-:root[data-theme="dark"] .bg-robot { opacity: 0.2; }
+.bg-robot-button {
+    display: block;
+    padding: 0;
+    border: 0;
+    background: none;
+    color: var(--accent);
+    font: inherit;
+    line-height: 1;
+    cursor: pointer;
+    pointer-events: auto;
+    opacity: 0.14;
+    transition: opacity 250ms var(--ease);
+}
+.bg-robot-button:hover,
+.bg-robot-button:focus-visible { opacity: 0.55; }
+:root[data-theme="dark"] .bg-robot-button { opacity: 0.2; }
+:root[data-theme="dark"] .bg-robot-button:hover,
+:root[data-theme="dark"] .bg-robot-button:focus-visible { opacity: 0.6; }
+.bg-robot-button i { display: block; }
+.bg-robot-button.is-hit { opacity: 0.85; }
+.bg-robot-button.is-hit i { animation: robot-hop 700ms var(--ease); }
+
+.bg-robot-bubble {
+    position: absolute;
+    inset-block-end: calc(100% + 10px);
+    inset-inline-start: 50%;
+    padding: 0.35rem 0.65rem;
+    border: 1px solid var(--rule);
+    background: var(--bg-elev);
+    color: var(--ink);
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    line-height: 1.4;
+    white-space: nowrap;
+    opacity: 0;
+    transform: translate(-50%, 6px);
+    transition: opacity 200ms var(--ease), transform 200ms var(--ease);
+    pointer-events: none;
+}
+.bg-robot-bubble.is-visible {
+    opacity: 1;
+    transform: translate(-50%, 0);
+}
 @keyframes robot-drift {
     0%   { transform: translate(6vw, 22vh); }
     20%  { transform: translate(78vw, 12vh); }
@@ -148,11 +190,25 @@ main { counter-reset: sec; }
     0%, 100% { transform: translateY(0) rotate(-6deg); }
     50%      { transform: translateY(-14px) rotate(6deg); }
 }
+@keyframes robot-hop {
+    0%   { transform: translateY(0) rotate(0) scale(1); }
+    35%  { transform: translateY(-28px) rotate(180deg) scale(1.15); }
+    70%  { transform: translateY(0) rotate(360deg) scale(0.95); }
+    100% { transform: translateY(0) rotate(360deg) scale(1); }
+}
 @media (max-width: 720px) {
     .bg-robot-bob { font-size: 3rem; }
 }
 @media (prefers-reduced-motion: reduce) {
     .bg-robot,
-    .bg-robot-bob { animation: none; }
+    .bg-robot-bob,
+    .bg-robot-button.is-hit i { animation: none; }
     .bg-robot { transform: translate(82vw, 75vh); }
 }
+
+/* Larger award text so it reads clearly beside the venue tag. */
+.pub-badge {
+    padding: 0.28rem 0.7rem;
+    font-size: 0.88rem;
+}
+.pub-badge i { font-size: 0.95em; }

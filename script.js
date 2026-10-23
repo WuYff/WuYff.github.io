@@ -169,8 +169,47 @@ function initBibtexButtons() {
     });
 }
 
+// Clicking the background robot makes it hop and say something.
+function initRobot() {
+    const button = document.querySelector('.bg-robot-button');
+    const bubble = document.querySelector('.bg-robot-bubble');
+    if (!button || !bubble) return;
+
+    const messages = [
+        'Beep boop!',
+        'Hello, human!',
+        'Planning a safe path...',
+        'Correcting my action chunk...',
+        'Plan verified against LTL ✓',
+        'Off to go hiking!',
+        'Painting in progress...'
+    ];
+    let last = -1;
+    let hideTimer = 0;
+
+    button.addEventListener('click', () => {
+        let next = Math.floor(Math.random() * messages.length);
+        if (next === last) next = (next + 1) % messages.length;
+        last = next;
+        bubble.textContent = messages[next];
+        bubble.classList.add('is-visible');
+
+        // Restart the hop even on rapid repeat clicks.
+        button.classList.remove('is-hit');
+        void button.offsetWidth;
+        button.classList.add('is-hit');
+
+        clearTimeout(hideTimer);
+        hideTimer = setTimeout(() => {
+            bubble.classList.remove('is-visible');
+            button.classList.remove('is-hit');
+        }, 1800);
+    });
+}
+
 document.addEventListener('DOMContentLoaded', () => {
     initThemeToggle();
+    initRobot();
     initBibtexButtons();
     initScrollSpy();
     externalizeLinks();
