@@ -1,0 +1,87 @@
+/* Swiss — white space, one tight grotesk, numbered sections, a single red accent. */
+:root {
+    --font-sans: "Inter Tight", -apple-system, "PingFang SC", sans-serif;
+    --font-serif: "Inter Tight", -apple-system, "PingFang SC", sans-serif;
+    --font-mono: "DM Mono", ui-monospace, Menlo, monospace;
+    --font-hand: "Inter Tight", sans-serif;
+}
+
+:root,
+:root[data-theme="light"] {
+    --bg: #ffffff;
+    --bg-elev: #ffffff;
+    --bg-sunk: #f4f4f4;
+    --ink: #111111;
+    --ink-soft: #4a4a4a;
+    --ink-faint: #6b6b6b;
+    --rule: #e4e4e4;
+    --rule-soft: #efefef;
+    --accent: #d42a20;
+    --accent-hover: #a91f17;
+    --accent-wash: #fbe9e8;
+    --badge-ink: #111111;
+    --badge-bg: #f4f4f4;
+    --badge-border: #d9d9d9;
+}
+
+:root[data-theme="dark"] {
+    --bg: #0d0d0d;
+    --bg-elev: #151515;
+    --bg-sunk: #080808;
+    --ink: #f2f2f2;
+    --ink-soft: #b0b0b0;
+    --ink-faint: #8c8c8c;
+    --rule: #262626;
+    --rule-soft: #1b1b1b;
+    --accent: #ff5a4e;
+    --accent-hover: #ff8076;
+    --accent-wash: #2a1312;
+    --badge-ink: #f2f2f2;
+    --badge-bg: #1b1b1b;
+    --badge-border: #333333;
+}
+
+.hero-name,
+.topbar-name {
+    font-family: "Inter Tight", sans-serif;
+    font-weight: 800;
+    letter-spacing: -0.055em;
+}
+.hero-name { font-size: clamp(3.2rem, 8.5vw, 5.4rem); line-height: 0.95; }
+.topbar-name { font-size: 1.1rem; letter-spacing: -0.04em; }
+.topbar-name::after { content: "."; color: var(--accent); }
+.hero-name::after { content: "."; color: var(--accent); }
+
+.hero-motto { display: none; }
+.hero-role { text-transform: uppercase; letter-spacing: 0.08em; font-size: 0.74rem; }
+
+/* Numbered section headings: 01 — About */
+main { counter-reset: sec; }
+.section-title {
+    counter-increment: sec;
+    font-weight: 700;
+    letter-spacing: -0.035em;
+    font-size: clamp(1.5rem, 3vw, 1.9rem);
+}
+.section-title::before {
+    content: counter(sec, decimal-leading-zero);
+    color: var(--accent);
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 0;
+    min-width: 1.8rem;
+}
+
+.pub-title { font-weight: 650; letter-spacing: -0.03em; }
+.pub-venue {
+    padding: 0.18rem 0.5rem;
+    background: var(--ink);
+    color: var(--bg);
+    border-radius: 0;
+}
+
+.hero-portrait img,
+.pub-thumb img { border-radius: 0; }
+.pub-thumb img { filter: grayscale(1); transition: filter 400ms var(--ease); }
+.pub:hover .pub-thumb img { filter: none; }

@@ -1,0 +1,970 @@
+/* ==========================================================================
+   Yi Wu — academic homepage
+   Base layout; theme.css supplies the typefaces and colour palette.
+   ========================================================================== */
+
+:root {
+    --page-width: 960px;
+    --page-inline-space: 3rem;
+    --topbar-height: 72px;
+
+    --font-sans: "Manrope", -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", sans-serif;
+    --font-serif: "EB Garamond", Georgia, "Songti SC", "Times New Roman", serif;
+    --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    /* Ships a single weight (400). Display type asks for 700 anyway and lets the
+       browser synthesise the bold — deliberate, so `font-synthesis-weight` must
+       stay at its default (never set it to `none`, that silently kills this).
+       Its cap-height runs ~17% taller and its descenders ~41% deeper than a
+       typical script face, so hand-font sizes are set smaller and line-heights
+       looser than usual. */
+    --font-hand: "Annie Use Your Telescope", "Bradley Hand", "Segoe Script", cursive;
+
+    --radius-sm: 6px;
+    --radius-md: 10px;
+    --radius-lg: 14px;
+
+    --ease: cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+:root,
+:root[data-theme="light"] {
+    --bg: #fbfbfd;
+    --bg-elev: #ffffff;
+    --bg-sunk: #f3f4f8;
+    --ink: #15161c;
+    --ink-soft: #555a68;
+    --ink-faint: #626774;
+    --rule: #e1e3ea;
+    --rule-soft: #edeef3;
+    --accent: #3f4fa8;
+    --accent-hover: #33418d;
+    --accent-wash: #ecedfa;
+    --badge-ink: #805000;
+    --badge-bg: #fff3ce;
+    --badge-border: #e6c776;
+    --shadow: 0 1px 2px rgba(21, 22, 28, 0.05), 0 10px 28px -18px rgba(21, 22, 28, 0.35);
+}
+
+:root[data-theme="dark"] {
+    --bg: #121315;
+    --bg-elev: #191a1d;
+    --bg-sunk: #0b0c0f;
+    --ink: #e8e9ee;
+    --ink-soft: #9ba1b0;
+    --ink-faint: #9296a0;
+    --rule: #282b34;
+    --rule-soft: #1e2027;
+    --accent: #9aa6f0;
+    --accent-hover: #b3bcf5;
+    --accent-wash: #212540;
+    --badge-ink: #f6d680;
+    --badge-bg: #302714;
+    --badge-border: #756030;
+    --shadow: 0 1px 2px rgba(0, 0, 0, 0.45), 0 10px 28px -18px rgba(0, 0, 0, 0.85);
+}
+
+/* --------------------------------------------------------------------------
+   Base
+   -------------------------------------------------------------------------- */
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: calc(var(--topbar-height) + 24px);
+    -webkit-text-size-adjust: 100%;
+}
+
+body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--font-serif);
+    font-size: 1.1875rem;
+    line-height: 1.66;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+a {
+    color: var(--accent);
+    text-decoration: none;
+    text-underline-offset: 3px;
+    transition: color 140ms var(--ease);
+}
+
+a:hover {
+    color: var(--accent-hover);
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+}
+
+p {
+    margin: 0 0 0.85em;
+}
+
+h1,
+h2,
+h3 {
+    margin: 0;
+    font-weight: 600;
+    line-height: 1.25;
+    text-wrap: balance;
+}
+
+p {
+    text-wrap: pretty;
+}
+
+::selection {
+    background: var(--accent-wash);
+    color: var(--ink);
+}
+
+:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+    border-radius: 3px;
+}
+
+.muted {
+    color: var(--ink-faint);
+}
+
+.skip-link {
+    position: absolute;
+    inset-block-start: -100px;
+    inset-inline-start: 12px;
+    z-index: 100;
+    padding: 0.5rem 0.9rem;
+    border-radius: var(--radius-sm);
+    background: var(--accent);
+    color: #fff;
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+}
+
+.skip-link:focus {
+    inset-block-start: 12px;
+}
+
+/* --------------------------------------------------------------------------
+   Top bar
+   -------------------------------------------------------------------------- */
+
+.topbar {
+    position: sticky;
+    inset-block-start: 0;
+    z-index: 3;
+    border-block-end: 1px solid transparent;
+    background: var(--bg);
+    transition: border-color 200ms var(--ease);
+}
+
+.topbar.is-stuck {
+    border-block-end-color: var(--rule-soft);
+}
+
+.topbar-inner {
+    display: flex;
+    align-items: center;
+    gap: 2.5rem;
+    width: min(100% - var(--page-inline-space), var(--page-width));
+    height: var(--topbar-height);
+    margin-inline: auto;
+}
+
+.topbar-name {
+    flex-shrink: 0;
+    color: var(--ink);
+    font-family: var(--font-hand);
+    font-size: 1.42rem;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.topbar-name:hover {
+    color: var(--accent);
+    text-decoration: none;
+}
+
+.topbar-nav {
+    flex: 1;
+    min-width: 0;
+}
+
+.topbar-controls {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+    gap: 0.25rem;
+}
+
+.nav-links {
+    display: flex;
+    gap: 1.35rem;
+    margin: 0;
+    padding: 0;
+    overflow-x: auto;
+    list-style: none;
+    scrollbar-width: none;
+}
+
+.nav-links::-webkit-scrollbar {
+    display: none;
+}
+
+.nav-links a {
+    position: relative;
+    display: block;
+    padding-block: 8px;
+    color: var(--ink-soft);
+    font-family: var(--font-mono);
+    font-size: 0.79rem;
+    font-weight: 500;
+    white-space: nowrap;
+}
+
+.nav-links a::after {
+    position: absolute;
+    inset-block-end: 3px;
+    inset-inline-start: 0;
+    width: 100%;
+    height: 1.5px;
+    border-radius: 2px;
+    background: var(--accent);
+    content: "";
+    transform: scaleX(0);
+    transform-origin: 0 50%;
+    transition: transform 220ms var(--ease);
+}
+
+.nav-links a:hover {
+    color: var(--ink);
+    text-decoration: none;
+}
+
+.nav-links a.active {
+    color: var(--ink);
+}
+
+.nav-links a.active::after {
+    transform: scaleX(1);
+}
+
+.theme-toggle {
+    display: grid;
+    flex-shrink: 0;
+    place-items: center;
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    border: 0;
+    border-radius: 50%;
+    background: transparent;
+    color: var(--ink-soft);
+    font-size: 0.76rem;
+    cursor: pointer;
+    transition: color 160ms var(--ease), border-color 160ms var(--ease),
+        background-color 160ms var(--ease);
+}
+
+.theme-toggle:hover {
+    border-color: var(--accent);
+    background: var(--accent-wash);
+    color: var(--accent);
+}
+
+/* --------------------------------------------------------------------------
+   Page shell
+   -------------------------------------------------------------------------- */
+
+.page {
+    position: relative;
+    z-index: 1;
+    width: min(100% - var(--page-inline-space), var(--page-width));
+    margin-inline: auto;
+    padding-block-end: 2rem;
+}
+
+/* --------------------------------------------------------------------------
+   Hero
+   -------------------------------------------------------------------------- */
+
+.hero {
+    display: flex;
+    align-items: center;
+    gap: clamp(1.5rem, 5vw, 3rem);
+    padding-block: clamp(3.5rem, 8vw, 7rem) clamp(1.5rem, 3vw, 3rem);
+}
+
+.hero-text {
+    flex: 1;
+    min-width: 0;
+}
+
+.hero-name {
+    font-family: var(--font-hand);
+    font-size: clamp(3.4rem, 8vw, 5rem);
+    font-weight: 700;
+    line-height: 1.16;
+    letter-spacing: 0.005em;
+}
+
+.hero-name-cn {
+    margin-inline-start: 0.4rem;
+    color: var(--ink-soft);
+    font-family: var(--font-serif);
+    font-size: 0.28em;
+    font-weight: 400;
+    letter-spacing: 0.02em;
+}
+
+.hero-role {
+    margin-block: 0.75rem 0;
+    color: var(--ink-soft);
+    font-family: var(--font-mono);
+    font-size: 0.83rem;
+    line-height: 1.7;
+}
+
+.hero-motto {
+    margin-block: 0.6rem 0;
+    color: var(--ink-faint);
+    font-family: var(--font-hand);
+    font-size: 1.28rem;
+    font-weight: 700;
+    line-height: 1.35;
+}
+
+.hero-portrait {
+    flex-shrink: 0;
+    width: clamp(152px, 28vw, 224px);
+}
+
+.hero-portrait img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 1;
+    border-radius: 8px;
+    object-fit: cover;
+    transition: transform 650ms var(--ease);
+}
+
+.hero-portrait:hover img {
+    transform: translateY(-4px) rotate(-1deg);
+}
+
+.social-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-block-start: 1.3rem;
+}
+
+.social-links a {
+    display: grid;
+    place-items: center;
+    width: 40px;
+    height: 40px;
+    border: 0;
+    border-radius: 50%;
+    color: var(--ink-soft);
+    font-size: 0.85rem;
+    transition: color 160ms var(--ease), border-color 160ms var(--ease),
+        background-color 160ms var(--ease), transform 160ms var(--ease);
+}
+
+.social-links a:hover {
+    border-color: var(--accent);
+    background: var(--accent-wash);
+    color: var(--accent);
+    text-decoration: none;
+    transform: translateY(-2px);
+}
+
+.social-cv-mark {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    font-weight: 500;
+}
+
+/* --------------------------------------------------------------------------
+   Sections
+   -------------------------------------------------------------------------- */
+
+.section {
+    padding-block: clamp(2.75rem, 6vw, 4.5rem) 0;
+}
+
+.section-title {
+    display: flex;
+    align-items: baseline;
+    gap: 0.8rem;
+    margin-block-end: 1.65rem;
+    font-family: var(--font-sans);
+    font-size: clamp(1.25rem, 2.5vw, 1.5rem);
+    font-weight: 600;
+    line-height: 1.2;
+    letter-spacing: -0.03em;
+}
+
+.section-title::after {
+    content: none;
+}
+
+.section-note {
+    color: var(--ink-faint);
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    font-weight: 400;
+}
+
+.prose p:last-child {
+    margin-block-end: 0;
+}
+
+.prose { width: 100%; }
+
+.prose strong {
+    font-weight: 600;
+}
+
+.inline-logo {
+    height: 0.95em;
+    vertical-align: -0.1em;
+}
+
+:root[data-theme="dark"] .inline-logo[src$="purdue.svg"] {
+    filter: brightness(0) invert(0.9);
+}
+
+/* Research ---------------------------------------------------------------- */
+
+.research-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2.5rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.research-list li {
+    padding-block-start: 1.2rem;
+    border-block-start: 1px solid var(--rule);
+}
+
+.interest-keyword {
+    display: block;
+    color: var(--ink);
+    font-family: var(--font-sans);
+    font-size: 1rem;
+    font-weight: 600;
+    line-height: 1.3;
+}
+
+.research-list p {
+    margin-block: 0.6rem 0;
+    color: var(--ink-soft);
+    font-size: 1.02rem;
+    line-height: 1.8;
+}
+
+.collab-invite {
+    display: flex;
+    align-items: baseline;
+    gap: 0.6rem;
+    margin-block: 1.5rem 0;
+    padding: 0;
+    color: var(--ink-soft);
+    font-size: 1.02rem;
+}
+
+.collab-invite i {
+    display: none;
+}
+
+/* News -------------------------------------------------------------------- */
+
+.news-container {
+    max-height: 330px;
+    padding-inline-end: 0.5rem;
+    overflow-y: auto;
+    mask-image: linear-gradient(to bottom, #000 86%, transparent);
+    -webkit-mask-image: linear-gradient(to bottom, #000 86%, transparent);
+    scrollbar-width: thin;
+    scrollbar-color: var(--rule) transparent;
+}
+
+.news-container::-webkit-scrollbar {
+    width: 5px;
+}
+
+.news-container::-webkit-scrollbar-thumb {
+    border-radius: 99px;
+    background: var(--rule);
+}
+
+.news-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.news-item {
+    display: grid;
+    grid-template-columns: 5.4rem 1fr;
+    gap: 1rem;
+    padding-block: 0.45rem;
+    border-block-end: 1px solid var(--rule-soft);
+}
+
+.news-item:last-child {
+    border-block-end: 0;
+}
+
+.news-date {
+    color: var(--ink-faint);
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    letter-spacing: -0.02em;
+    line-height: 2.1;
+    white-space: nowrap;
+}
+
+.news-item p {
+    margin: 0;
+    font-size: 1.04rem;
+    line-height: 1.5;
+}
+
+/* Publications ------------------------------------------------------------ */
+
+.publication-controls {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.35rem 1.5rem;
+    margin-block: 0 0.75rem;
+    border-block-end: 1px solid var(--rule);
+}
+
+.publication-controls[hidden],
+.pub[hidden] {
+    display: none;
+}
+
+.publication-controls button {
+    min-height: 44px;
+    padding: 0.6rem 0;
+    border: 0;
+    border-block-end: 2px solid transparent;
+    background: transparent;
+    color: var(--ink-soft);
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    cursor: pointer;
+}
+
+.publication-controls button[aria-pressed="true"] {
+    border-block-end-color: var(--accent);
+    color: var(--accent);
+}
+
+.publication-controls button:hover {
+    color: var(--accent-hover);
+}
+
+.publication-count {
+    margin-inline-start: 0.3rem;
+    color: var(--ink-faint);
+    font-size: 0.72rem;
+}
+
+.publication-status {
+    margin: 0 0 1.5rem;
+    color: var(--ink-soft);
+    font-size: 1rem;
+}
+
+.publication-list {
+    display: grid;
+}
+
+.pub {
+    display: grid;
+    grid-template-columns: 184px 1fr;
+    gap: 2rem;
+    align-items: start;
+    padding-block: 0 2rem;
+}
+
+/* Only visible preceding papers add a separator and space above the next row. */
+.pub:not([hidden]) ~ .pub {
+    padding-block-start: 2rem;
+    border-block-start: 1px solid var(--rule-soft);
+}
+
+/* Bare figure: fixed width, natural height, no frame or backdrop. */
+.pub-thumb img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 4px;
+    transition: transform 650ms var(--ease);
+}
+
+.pub:hover .pub-thumb img {
+    transform: translateY(-3px);
+}
+
+.pub-body {
+    min-width: 0;
+}
+
+/* Reusable publication distinctions: rankings, Spotlight, Oral, etc.
+   Use an anchor when there is a source link; otherwise use a span. */
+.pub-meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.4rem 0.75rem;
+}
+
+.pub-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    max-width: 100%;
+    padding: 0.24rem 0.6rem;
+    border: 1px solid var(--badge-border);
+    border-radius: var(--radius-sm);
+    background: var(--badge-bg);
+    color: var(--badge-ink);
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    font-weight: 500;
+    line-height: 1.65;
+}
+
+.pub-badge strong {
+    font-weight: 700;
+}
+
+.pub-badge time {
+    white-space: nowrap;
+    font-size: 0.7rem;
+}
+
+a.pub-badge:hover {
+    color: var(--badge-ink);
+    border-color: currentColor;
+    text-decoration: underline;
+}
+
+a.pub-badge:focus-visible {
+    outline: 2px solid var(--badge-ink);
+    outline-offset: 3px;
+}
+
+.pub-venue {
+    display: inline-block;
+    color: var(--accent);
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+}
+
+.pub-title {
+    margin-block: 0.3rem 0;
+    font-size: 1.26rem;
+    line-height: 1.45;
+    letter-spacing: -0.02em;
+    text-wrap: pretty;
+}
+
+.pub-authors {
+    margin-block: 0.32rem 0;
+    color: var(--ink-soft);
+    font-size: 1rem;
+    line-height: 1.75;
+}
+
+.highlight-name {
+    color: var(--ink);
+    font-weight: 600;
+}
+
+.pub-tldr {
+    margin-block: 0.5rem 0;
+    color: var(--ink-soft);
+    font-size: 0.99rem;
+    line-height: 1.8;
+}
+
+.pub-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.1rem;
+    margin-block-start: 0.7rem;
+}
+
+.pub-links a,
+.pub-bibtex {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 0.4rem 0;
+    border: 0;
+    color: var(--accent);
+    font-family: var(--font-mono);
+    font-size: 0.77rem;
+    transition: color 160ms var(--ease), border-color 160ms var(--ease),
+        background-color 160ms var(--ease);
+}
+
+.pub-bibtex {
+    background: none;
+    cursor: pointer;
+}
+
+.pub-links a:hover,
+.pub-bibtex:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+    text-decoration: underline;
+}
+
+.pub-links i {
+    font-size: 0.64rem;
+}
+
+/* Education --------------------------------------------------------------- */
+
+.education-list {
+    display: grid;
+}
+
+.education-item {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 1.1rem;
+    align-items: center;
+    padding-block: 0.85rem;
+    border-block-end: 1px solid var(--rule-soft);
+}
+
+.education-item:last-child {
+    border-block-end: 0;
+}
+
+.edu-year {
+    color: var(--ink-faint);
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    letter-spacing: -0.02em;
+}
+
+.edu-content h3 {
+    font-size: 1.14rem;
+}
+
+.edu-content p {
+    margin: 0.15rem 0 0;
+    color: var(--ink-soft);
+    font-size: 1rem;
+}
+
+.edu-logo img {
+    display: block;
+    width: 100%;
+    max-height: 38px;
+    object-fit: contain;
+}
+
+/* Services ---------------------------------------------------------------- */
+
+.services {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.7rem;
+}
+
+.services-label {
+    color: var(--ink-faint);
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+}
+
+.services-venues {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+}
+
+.venue-tag {
+    padding: 0.2rem 0.65rem;
+    border: 1px solid var(--rule);
+    border-radius: 99px;
+    color: var(--ink-soft);
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+}
+
+/* Earlier, thumbnail-free publications. */
+.pub-subhead {
+    margin-block: 2.5rem 0.4rem;
+    color: var(--ink-faint);
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+}
+
+.pub-compact {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.pub-compact li {
+    padding-block: 1rem;
+    border-block-end: 1px solid var(--rule-soft);
+}
+
+.pub-compact li:last-child {
+    border-block-end: 0;
+}
+
+.pub-compact p {
+    margin: 0.35rem 0 0;
+    color: var(--ink-soft);
+    font-size: 1rem;
+    line-height: 1.7;
+}
+
+.pub-compact strong {
+    color: var(--ink);
+    font-weight: 600;
+}
+
+.pub-compact .pub-links {
+    margin-block-start: 0.3rem;
+}
+
+/* Footer ------------------------------------------------------------------ */
+
+.site-footer {
+    margin-block-start: clamp(2.5rem, 6vw, 3.5rem);
+    padding-block-start: 1.35rem;
+    border-block-start: 1px solid var(--rule-soft);
+    color: var(--ink-faint);
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    text-align: center;
+}
+
+/* --------------------------------------------------------------------------
+   Responsive
+   -------------------------------------------------------------------------- */
+
+@media (min-width: 721px) and (max-width: 1100px) {
+    :root { --page-inline-space: 8rem; }
+}
+
+@media (max-width: 720px) {
+    :root {
+        --topbar-height: 60px;
+    }
+
+    .topbar-inner,
+    .page {
+        width: min(100% - 2rem, var(--page-width));
+    }
+
+    .topbar-name {
+        display: none;
+    }
+
+    .hero {
+        flex-direction: column-reverse;
+        align-items: flex-start;
+        gap: 1.4rem;
+    }
+
+    .topbar-inner { gap: 0.5rem; }
+
+    .research-list { grid-template-columns: 1fr; gap: 1.3rem; }
+
+    .nav-links a { min-height: 44px; display: flex; align-items: center; }
+
+    .social-links a,
+    .theme-toggle { width: 44px; height: 44px; }
+
+    .pub-links a, .pub-bibtex { min-height: 44px; }
+
+    .pub {
+        grid-template-columns: 1fr;
+        gap: 0.9rem;
+    }
+
+    .pub-thumb img {
+        max-width: 280px;
+    }
+
+    .news-item {
+        grid-template-columns: 1fr;
+        gap: 0.1rem;
+    }
+
+    .news-date {
+        line-height: 1.5;
+    }
+
+    .education-item {
+        grid-template-columns: 1fr;
+        gap: 0.2rem;
+    }
+
+    .edu-year {
+        grid-column: 1 / -1;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.001ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.001ms !important;
+    }
+
+}
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+}

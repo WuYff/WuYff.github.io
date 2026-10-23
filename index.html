@@ -1,21 +1,16 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <style type="text/css">
-      p.normal {font-weight: normal}
-      li.thick {font-weight: bold}
-      b.thick {font-weight: bold}
-      </style>
-    <!-- Required meta tags -->
-    <meta charset="utf-8"/>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="I am currently a Ph.D. student majoring in the Department of Computer Science at Purdue University.">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yi Wu | Purdue Computer Science PhD Student</title>
+    <meta name="description" content="Yi Wu is a Computer Science PhD student at Purdue University working on physical AI, robotics, and generative AI.">
     <meta name="author" content="Yi Wu">
-    <meta name="keywords" content="Yi Wu, Software Engineering, Large Language Models, Automated Program Repair">
+    <meta name="keywords" content="Yi Wu, Physical AI, Robotics, Generative AI, Vision-Language-Action Models, LLM Agents">
+    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#0d0d0d" media="(prefers-color-scheme: dark)">
 
-    <!-- favicon -->
-    <link href="favicon.jpg" rel=icon>
+    <link rel="icon" href="favicon.jpg">
 
     <!-- Google Analytics -->
     <script>
@@ -29,410 +24,233 @@
     </script>
     <!-- End Google Analytics -->
 
-    <!-- bootstrap -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <script>
+        (function () {
+            var stored = null;
+            try { stored = localStorage.getItem('theme'); } catch (error) { stored = null; }
+            var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            document.documentElement.dataset.theme = stored || (prefersDark ? 'dark' : 'light');
+        })();
+    </script>
 
-    <!-- font-awesome -->
-    <link href="css/fontawesome.min.css" rel="stylesheet">
-    <link href="css/solid.min.css" rel="stylesheet">
-    <link href="css/brands.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;650;700;800&amp;family=DM+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="theme.css">
+    <script defer src="script.js"></script>
+</head>
+<body>
+    <a class="skip-link" href="#about">Skip to main content</a>
 
-    <!-- academicons -->
-    <link href="css/academicons.min.css" rel="stylesheet">
-
-    <!-- Style CSS -->
-    <link href="css/style.css" rel="stylesheet">
-
-    <title>Yi Wu</title>
-  </head>
-  <body>
-    <div class="container-fluid">
-      <nav class="navbar navbar-expand-sm navbar-light fixed-top">
-        <!-- Navbar content -->
-        <div class="container-fluid">
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggler" aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarToggler">
-            <ul class="navbar-nav ml-auto">
-              <li class="nav-item">
-                <a class="nav-item nav-link" href="#home">Home</a>
-              </li>
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  Links
-                </a>
-                <div class="dropdown-menu dropdown-menu-right dropdown-menu-xl-left" aria-labelledby="navbarDropdownMenuLink">
-                  <!-- <a class="dropdown-item" href="#bio">Biography</a> -->
-                  
-                  <!-- <a class="dropdown-item" href="#exp">Experience</a> -->
-                  <a class="dropdown-item" href="#pub">Publications</a>
-                  <a class="dropdown-item" href="#edu">Education</a>
-                  <a class="dropdown-item" href="#service">Service</a>
-                  <a class="dropdown-item" href="#te">Teaching Experience</a>
-                  <!-- <a class="dropdown-item" href="#awa">Awards</a> -->
-                  <!-- <a class="dropdown-item" href="#lif">Life</a> -->
-                </div>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </nav>
-      <div class="sec-wrapper home-wrapper" id="home">
-        <div class="container-fluid">
-          <div class="row align-items-center">
-            <div class="picture">
-              <div class="col-sm-auto col-wrapper">
-                <img src="images/Yi_Wu.jpg" class="img-responsive" alt="[Yi Wu :)]"
-                     onmouseover="this.src='images/Yi_Wu.jpg'" onmouseout="this.src='images/Yi_Wu.jpg'"/>
-              </div>
-            </div>
-            <div class="col-sm col-wrapper">
-              <div class="description">
-                <h1 class="name">Yi Wu</h1>
-                <div>Ph.D. Student</div>
-                <div>Department of Computer Science</div>
-                <!-- <div>Email: yiwu5cs@gmail.com</div> -->
-                <div>Purdue University</div>
-                <!-- <div><a href="documents/Yi_Wu_CV.pdf">[Curriculum Vitae]</a></div> -->
-                <ul class="social-icon">
-                  <li><a title="Email" href="mailto:wu1827@purdue.edu"><i class="fas fa-envelope" aria-hidden="true"></i></a></li>
-                  <li><a title="Google Scholar" href="https://scholar.google.com/citations?user=G6cNmS4AAAAJ&hl=en"><i class="ai ai-google-scholar" aria-hidden="true"></i></a></li>
-                  <!-- <li><a title="DBLP" href="https://dblp.uni-trier.de/pers/hd/m/Ma:Haotian"><i class="ai ai-dblp" aria-hidden="true"></i></a></li> -->
-                  <li><a title="Linkedin" href="https://www.linkedin.com/in/yi-wu-a59729187/"><i class="fab fa-linkedin" aria-hidden="true"></i></a></li>
-                  <li><a title="Github" href="https://github.com/WuYff"><i class="fab fa-github" aria-hidden="true"></i></a></li>
-                  <li><a title="Twitter" href="https://twitter.com/yiwu5cs"><i class="fab fa-twitter" aria-hidden="true"></i></a></li>
-                  <!-- <li><a title="Zhihu" href="https://www.zhihu.com/people/Pika7ma"><i class="fab fa-zhihu" aria-hidden="true"></i></a></li> -->
-                  <!-- <li><a data-toggle="popover" data-placement="bottom" data-img="images/wechat.png"><i class="fab fa-weixin" aria-hidden="true"></i></a></li> -->
+    <header class="topbar">
+        <div class="topbar-inner">
+            <a class="topbar-name" href="#top">Yi Wu</a>
+            <nav class="topbar-nav" aria-label="Primary navigation">
+                <ul class="nav-links">
+                    <li><a class="active" href="#about" aria-current="location">About</a></li>
+                    <li><a href="#research">Research</a></li>
+                    <li><a href="#publications">Publications</a></li>
+                    <li><a href="#experience">Experience</a></li>
+                    <li><a href="#education">Education</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#press">Press</a></li>
                 </ul>
-              </div>
+            </nav>
+            <div class="topbar-controls">
+                <button class="theme-toggle" type="button" aria-label="Switch colour theme">
+                    <i class="fa-solid fa-moon" aria-hidden="true"></i>
+                </button>
             </div>
-            <div class="col-sm-12 col-lg col-wrapper">
-              <div class="interests">
-                <div class="section-title">Research Interests</div>
-                <ul>
-                  <!-- <li>AI for SE</li> -->
-                  <!-- <li>LLM for code</li> -->
-                  <li>Physical AI</li>
-                  <li>Robotics</li>
-                  <li>Generative AI</li>
-                  <!-- <li>Reasoning and Planning</li> -->
+        </div>
+    </header>
+
+    <div class="page" id="top">
+        <header class="hero">
+            <div class="hero-text">
+                <h1 class="hero-name">Yi Wu</h1>
+                <p class="hero-role">PhD Student · Computer Science · Purdue University</p>
+                <div class="social-links" aria-label="Social links">
+                    <a href="https://scholar.google.com/citations?user=G6cNmS4AAAAJ&amp;hl=en" title="Google Scholar" aria-label="Google Scholar"><i class="fa-solid fa-graduation-cap" aria-hidden="true"></i></a>
+                    <a href="https://github.com/WuYff" title="GitHub" aria-label="GitHub"><i class="fa-brands fa-github" aria-hidden="true"></i></a>
+                    <a href="https://www.linkedin.com/in/yi-wu-a59729187/" title="LinkedIn" aria-label="LinkedIn"><i class="fa-brands fa-linkedin" aria-hidden="true"></i></a>
+                    <a href="https://twitter.com/yiwu5cs" title="X (Twitter)" aria-label="X (Twitter)"><i class="fa-brands fa-x-twitter" aria-hidden="true"></i></a>
+                    <a href="mailto:wu1827@purdue.edu" title="Email" aria-label="Email"><i class="fa-solid fa-envelope" aria-hidden="true"></i></a>
+                </div>
+            </div>
+            <div class="hero-portrait">
+                <img src="images/Yi_Wu.jpg" alt="Yi Wu">
+            </div>
+        </header>
+
+        <main id="main-content">
+            <section id="about" class="section">
+                <h2 class="section-title">About</h2>
+                <div class="prose">
+                    <p>I am a Ph.D. student in the <a href="https://www.cs.purdue.edu">Department of Computer Science</a> at <strong>Purdue University</strong>, co-advised by <a href="https://www.cs.purdue.edu/homes/lintan/">Prof. Lin Tan</a> and <a href="https://www.cs.purdue.edu/homes/ab/">Prof. Aniket Bera</a>. I received my B.E. in Computer Science from the <strong>Southern University of Science and Technology</strong>, where I worked with <a href="http://www.shinhwei.com/">Prof. Shin Hwei Tan</a>.</p>
+                </div>
+            </section>
+
+            <section id="research" class="section">
+                <h2 class="section-title">Research Interests</h2>
+                <ul class="research-list">
+                    <li>
+                        <span class="interest-keyword">Physical AI &amp; Robotics</span>
+                        <p>Vision-Language-Action Policies, Action Correction, and Safe Robot Task Planning.</p>
+                    </li>
+                    <li>
+                        <span class="interest-keyword">Generative AI</span>
+                        <p>LLM Planners, Coding Agents, and Preference Optimization.</p>
+                    </li>
                 </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!-- <div class="sec-wrapper bio-wrapper" id="high">
-        <div class="container-fluid">
-          <div class="row">
-            <div class="col col-wrapper">
-              <div class="section-title">Highlights</div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col col-wrapper">
-              <ul>
-                <li class="thick" >I am applying for PhD in fall 2021 !</li>
-              </ul>       
-            </div>
-          </div>
-          <div class="row">
-            <div class="col col-wrapper">
-              <ul>
-                <li class="thick" > [Sept. 2020] I won the first prize in <a href="https://conf.researchr.org/track/ase-2020/ase-2020-student-research-competition#event-overview">ASE SRC 2020</a> !</li>
-              </ul>       
-            </div>
-          </div>
-        </div>
-      </div> -->
-      <div class="sec-wrapper bio-wrapper" id="bio">
-        <div class="container-fluid">
-          <div class="row">
-            <!-- <div class="col col-wrapper">
-              <div class="section-title"><b class="thick" >Biography</b></div>
-            </div> -->
-          </div>
-          <div class="row">
-            <div class="col col-wrapper">
-              <p>
-                I am a Ph.D. student co-advised by <a href="https://www.cs.purdue.edu/homes/lintan/">Prof. Lin Tan</a> and  <a href="https://www.cs.purdue.edu/homes/ab/">Prof. Aniket Bera</a> in the <a href="https://www.cs.purdue.edu">Department of Computer Science</a> at <a href="https://www.purdue.edu">Purdue University</a>.
-                <!-- My research focuses on leveraging AI techniques to enhance software engineering (SE) practices. Recently, I work on applying and enhancing LLMs for coding tasks, includig code repair and security fixing. I also work on improving the reasoning and planning abilities of LLMs for AI agents. -->
-                <!-- I am a member of SUSTech <a href="http://www.shinhwei.com/teaching.html">Automated Program RepaIr and MaintEnance Lab (A-PRIME)</a> supervised by <a href="http://www.shinhwei.com/">Prof. Shin Hwei Tan</a>. Besides, I did a remote research internship at Software Aurora Lab in <a href="https://uci.edu/">UCI</a> under the supervision of <a href="https://jgarcia.ics.uci.edu/">Prof. Joshua Garcia</a> in the summer 2020. -->
-              </p>
-              <!-- <p>
-                My research interests are in software engineering, automated program repair, software testing and program analysis.
-              </p> -->
-            </div>
-          </div>
-        </div>
-      </div>
+            </section>
 
-    
-      <div class="sec-wrapper pub-wrapper" id="pub">
-        <div class="container-fluid">
-          <div class="row">
-            <div class="col col-wrapper">
-              <div class="section-title"><b class="bold" style="font-size: 23px;">Publications</b></div>
-            </div>
-          </div>
-
-          <div class="row align-items-center section-item">
- 
-            <div class="col-xs-11 col-md-11 col-lg-13 col-wrapper">
-              <!-- <b> -->
-              <div class="title">
-                <!-- <a href="./documents/VisualGraphMining.pdf"> -->
-                  <a href="https://2025.ieee-icra.org/">[ICRA 2025] </a> SELP: Generating Safe and Efficient Task Plans for Robot Agents with Large Language Models (<b class="thick" style="color: black;">Best Paper Award Finalist</b>)
-                  <div> <b class="thick" >Yi Wu,</b> Zikang Xiong, Yiran Hu, Shreyash S. Iyengar, Nan Jiang, Aniket Bera, Lin Tan, and Suresh Jagannathan. </div>
-                 <!-- <b class="thick" > Best Paper Award Finalist </b> -->
-                <!-- </a> -->
-              </div>
-              <!-- </b> -->
-              <!-- <a href="https://arxiv.org/pdf/2409.19471"> [PDF]</a> -->
-              <a href="https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=11128420">[PDF]</a>
-              <a href="https://github.com/lt-asset/selp">[Code]</a>
-              <a href="https://lt-asset.github.io/selp/">[Website]</a>
-            </div>
-          </div>
-
-          <div class="row align-items-center section-item">
- 
-            <div class="col-xs-11 col-md-11 col-lg-13 col-wrapper">
-              <!-- <b> -->
-              <div class="title">
-                <!-- <a href="./documents/VisualGraphMining.pdf"> -->
-                  <a href="https://conf.researchr.org/track/issta-2023/issta-2023-technical-papers#Call-for-Papers">[ISSTA 2023] </a> How Effective Are Neural Networks for Fixing Security Vulnerabilities.
-                  <div> <b class="thick" >Yi Wu,</b> Nan Jiang, Hung Viet Pham, Thibaud Lutellier, Jordan Davis, Lin Tan, Petr Babkin, and Sameena Shah. </div>
-                 <!-- <b class="thick" > Won First Prize</b> -->
-                <!-- </a> -->
-              </div>
-              <!-- </b> -->
-              <a href="./documents/vulfix-issta23.pdf"> [PDF]</a>
-              <a href="https://dl.acm.org/doi/10.1145/3597926.3598135">[URL]</a>
-               <a href="https://github.com/lin-tan/llm-vul">[Code]</a>
-            </div>
-          </div>
-
-          <div class="row align-items-center section-item">
-            <div class="col-xs-11 col-md-11 col-lg-13 col-wrapper">
-              <!-- <b> -->
-              <div class="title">
-                <!-- <a href="./documents/VisualGraphMining.pdf"> -->
-                  <a href="https://conf.researchr.org/track/ase-2020/ase-2020-student-research-competition#event-overview">[ASE SRC 2020] </a>  Anti-patterns  for  Java  Automated  Program  Repair  Tools.  (<b class="thick" >Won 1st Place</b>)
-                  <div> <b class="thick" > Yi  Wu. </b> </div>
-                  <!-- </a> -->
-              </div>
-              <!-- </b> -->
-              <a href="./documents/ase-src-70-new.pdf"> [PDF]</a>
-              <a href="./documents/ase20-src-70-poster.pdf"> [Poster]</a> 
-              <a href="https://dl.acm.org/doi/abs/10.1145/3324884.3418919">[URL]</a>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Press Coverage Section -->
-     
-      <!-- Experience Section -->
-      <div class="sec-wrapper exp-wrapper" id="te">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col col-wrapper">
-                    <div class="section-title"><b class="bold"  style="font-size: 23px;">Experience</b></div>
-                </div>
-            </div>
-
-                <!-- Internship Subsection -->
-                <div class="subsection" style="margin-top: 10px;">
-                  <div class="row">
-                      <div class="col col-wrapper">
-                          <div class="section-title"><b class="bold"  style="font-size: 18px;">Internship</b></div>
-                      </div>
-                  </div>
-                  <div class="row align-items-center section-item">
-                      <div class="col-md-9 col-wrapper">
-                          <div class="title">
-                              Applied Scientist, Amazon Web Service
-                          </div>
-                      </div>
-                      <div class="col-md-3 col-wrapper">
-                          <time>Summer 2025</time>
-                      </div>
-                  </div>
-                  <div class="row align-items-center section-item">
-                      <div class="col-md-9 col-wrapper">
-                          <div class="title">
-                              AI Research Associate, JPMorgan Chase & Co
-                          </div>
-                      </div>
-                      <div class="col-md-3 col-wrapper">
-                          <time>Summer 2024</time>
-                      </div>
-                  </div>
-              </div>
-
-
-            <!-- Teaching Subsection -->
-            <!-- <div class="subsection" style="margin-top: 10px;">
-                <div class="row">
-                    <div class="col col-wrapper">
-                        <div class="section-title"><b class="bold" style="font-size: 18px;">Teaching</b></div>
-                    </div>
-                </div>
-
-                <div class="row align-items-center section-item">
-                    <div class="col-md-9 col-wrapper">
-                        <div class="title">
-                            Teaching Assistant, CS580 Algorithm Design, Analysis, and Implementation, Purdue University
+            <section id="publications" class="section">
+                <h2 class="section-title">Selected Publications</h2>
+                <div class="publication-list" id="publication-list">
+                    <article class="pub">
+                        <div class="pub-thumb">
+                            <img loading="lazy" src="images/cocoa.jpg" alt="COCOA real-robot rollouts: clear the table, stack the cubes, plate the banana" width="1000" height="308">
                         </div>
-                    </div>
-                    <div class="col-md-3 col-wrapper">
-                        <time>Fall 2025</time>
-                    </div>
-                </div>
-                <div class="row align-items-center section-item">
-                    <div class="col-md-9 col-wrapper">
-                        <div class="title">
-                            Teaching Assistant, CS408 Software Testing, Purdue University
+                        <div class="pub-body">
+                            <span class="pub-venue">Preprint 2026</span>
+                            <h3 class="pub-title">COCOA: Action-Conditioned Correction for Vision-Language-Action Policies</h3>
+                            <p class="pub-authors"><span class="highlight-name">Yi Wu</span>, Manav Kulshrestha, Junyi Wu, Kai Cheng, Nan Jiang, Aniket Bera, Lin Tan</p>
+                            <p class="pub-tldr">A separate corrective policy that revises the action chunks proposed by a frozen flow-based VLA before execution, trained with supervised flow matching followed by correction preference optimization. Consistent gains on SimplerEnv, CALVIN, and real-robot tasks across &pi;<sub>0.5</sub>, FLOWER VLA, and Xiaomi-Robotics-0.</p>
                         </div>
-                    </div>
-                    <div class="col-md-3 col-wrapper">
-                        <time>Fall 2024</time>
-                    </div>
-                </div>
+                    </article>
 
-                <div class="row align-items-center section-item">
-                    <div class="col-md-9 col-wrapper">
-                        <div class="title">
-                            Teaching Assistant, CS307 Software Engineering, Purdue University
+                    <article class="pub">
+                        <div class="pub-thumb">
+                            <img loading="lazy" src="images/cost-agents.jpg" alt="Cost-inefficient behaviors found in a Claude Code trajectory" width="1000" height="527">
                         </div>
-                    </div>
-                    <div class="col-md-3 col-wrapper">
-                        <time>Fall 2022, Spring 2023</time>
-                    </div>
-                </div>
-
-                <div class="row align-items-center section-item">
-                    <div class="col-md-9 col-wrapper">
-                        <div class="title">
-                            Teaching Assistant, CS251 Data Structures and Algorithms, Purdue University
+                        <div class="pub-body">
+                            <span class="pub-venue">Preprint 2026</span>
+                            <h3 class="pub-title">Analyzing and Mitigating Cost-Inefficient Behaviors in Coding Agents</h3>
+                            <!-- TODO: confirm the full author list and order. -->
+                            <p class="pub-authors">Yiran Hu, <span class="highlight-name">Yi Wu</span>, et al.</p>
+                            <p class="pub-tldr">A study of 1,200 Claude Code and Mini-SWE-Agent trajectories on SWE-bench that identifies three recurring cost-inefficient behaviors, then shows developer-designed skills cut task cost by up to 41.73%, roughly twice the gain of agent-synthesized skills.</p>
                         </div>
+                    </article>
+
+                    <article class="pub">
+                        <div class="pub-thumb">
+                            <img loading="lazy" src="images/selp.jpg" alt="SELP motivating example: LTL-constrained drone navigation plan" width="1000" height="436">
+                        </div>
+                        <div class="pub-body">
+                            <div class="pub-meta">
+                                <span class="pub-venue">ICRA 2025</span>
+                                <a class="pub-badge" href="https://www.cs.purdue.edu/news/articles/2025/purdue-cs-researchers-earn-best-paper-finalist-at-2025-ieee-icra.html"><i class="fa-solid fa-award" aria-hidden="true"></i> <strong>Best Paper Award Finalist</strong></a>
+                            </div>
+                            <h3 class="pub-title">SELP: Generating Safe and Efficient Task Plans for Robot Agents with Large Language Models</h3>
+                            <p class="pub-authors"><span class="highlight-name">Yi Wu</span>, Zikang Xiong, Yiran Hu, Shreyash S. Iyengar, Nan Jiang, Aniket Bera, Lin Tan, Suresh Jagannathan</p>
+                            <p class="pub-tldr">Equivalence voting over LTL formulas, LTL-constrained decoding, and domain-specific fine-tuning make LLM planners follow complex user constraints, improving safety rate by 10.8% and plan efficiency by 19.8% on drone navigation.</p>
+                            <div class="pub-links">
+                                <a href="https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=11128420"><i class="fa-solid fa-file-lines" aria-hidden="true"></i> Paper</a>
+                                <a href="https://github.com/lt-asset/selp"><i class="fa-brands fa-github" aria-hidden="true"></i> Code</a>
+                                <a href="https://lt-asset.github.io/selp/"><i class="fa-solid fa-globe" aria-hidden="true"></i> Website</a>
+                                <button class="pub-bibtex" type="button"><i class="fa-solid fa-quote-right" aria-hidden="true"></i> BibTeX</button>
+                                <template class="pub-bibtex-source">@inproceedings{wu2025selp,
+  title     = {{SELP}: Generating Safe and Efficient Task Plans for Robot Agents with Large Language Models},
+  author    = {Wu, Yi and Xiong, Zikang and Hu, Yiran and Iyengar, Shreyash S. and Jiang, Nan and Bera, Aniket and Tan, Lin and Jagannathan, Suresh},
+  booktitle = {IEEE International Conference on Robotics and Automation (ICRA)},
+  year      = {2025}
+}</template>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+
+                <h3 class="pub-subhead">Earlier Work</h3>
+                <ul class="pub-compact">
+                    <li>
+                        <span class="pub-venue">ISSTA 2023</span>
+                        <p><strong>How Effective Are Neural Networks for Fixing Security Vulnerabilities.</strong> <span class="highlight-name">Yi Wu</span>, Nan Jiang, Hung Viet Pham, Thibaud Lutellier, Jordan Davis, Lin Tan, Petr Babkin, Sameena Shah.</p>
+                        <div class="pub-links">
+                            <a href="documents/vulfix-issta23.pdf"><i class="fa-solid fa-file-lines" aria-hidden="true"></i> Paper</a>
+                            <a href="https://dl.acm.org/doi/10.1145/3597926.3598135"><i class="fa-solid fa-link" aria-hidden="true"></i> ACM</a>
+                            <a href="https://github.com/lin-tan/llm-vul"><i class="fa-brands fa-github" aria-hidden="true"></i> Code</a>
+                        </div>
+                    </li>
+                    <li>
+                        <span class="pub-venue">ASE SRC 2020</span>
+                        <p><strong>Anti-patterns for Java Automated Program Repair Tools.</strong> <span class="highlight-name">Yi Wu</span>. <em>Won 1st Place.</em></p>
+                        <div class="pub-links">
+                            <a href="documents/ase-src-70-new.pdf"><i class="fa-solid fa-file-lines" aria-hidden="true"></i> Paper</a>
+                            <a href="documents/ase20-src-70-poster.pdf"><i class="fa-solid fa-image" aria-hidden="true"></i> Poster</a>
+                            <a href="https://dl.acm.org/doi/abs/10.1145/3324884.3418919"><i class="fa-solid fa-link" aria-hidden="true"></i> ACM</a>
+                        </div>
+                    </li>
+                </ul>
+            </section>
+
+            <section id="experience" class="section">
+                <h2 class="section-title">Experience</h2>
+                <div class="education-list">
+                    <div class="education-item">
+                        <div class="edu-content">
+                            <h3>Applied Scientist Intern, Amazon Web Services</h3>
+                        </div>
+                        <span class="edu-year">Summer 2025</span>
                     </div>
-                    <div class="col-md-3 col-wrapper">
-                        <time>Fall 2021, Spring 2022</time>
+                    <div class="education-item">
+                        <div class="edu-content">
+                            <h3>AI Research Associate Intern, JPMorgan Chase &amp; Co.</h3>
+                        </div>
+                        <span class="edu-year">Summer 2024</span>
                     </div>
                 </div>
-            </div> -->
+            </section>
 
-        </div>
-      </div>
+            <section id="education" class="section">
+                <h2 class="section-title">Education</h2>
+                <div class="education-list">
+                    <div class="education-item">
+                        <div class="edu-content">
+                            <h3>Ph.D. in Computer Science, Purdue University</h3>
+                            <p>Advisors: <a href="https://www.cs.purdue.edu/homes/lintan/">Prof. Lin Tan</a> and <a href="https://www.cs.purdue.edu/homes/ab/">Prof. Aniket Bera</a></p>
+                        </div>
+                        <span class="edu-year">2021 – Present</span>
+                    </div>
+                    <div class="education-item">
+                        <div class="edu-content">
+                            <h3>B.E. in Computer Science, Southern University of Science and Technology</h3>
+                            <p>Advisor: <a href="http://www.shinhwei.com/">Prof. Shin Hwei Tan</a></p>
+                        </div>
+                        <span class="edu-year">2017 – 2021</span>
+                    </div>
+                </div>
+            </section>
 
-   <div class="sec-wrapper exp-wrapper" id="press">
-        <div class="container-fluid">
-          <div class="row">
-            <div class="col col-wrapper">
-              <div class="section-title"><b class="bold" style="font-size: 23px;">Press Coverage</b></div>
-            </div>
-          </div>
+            <section id="services" class="section">
+                <h2 class="section-title">Academic Services</h2>
+                <div class="services">
+                    <span class="services-label">Conference Reviewer</span>
+                    <div class="services-venues">
+                        <span class="venue-tag">ICRA 2026</span>
+                    </div>
+                </div>
+                <div class="services">
+                    <span class="services-label">Journal Reviewer</span>
+                    <div class="services-venues">
+                        <span class="venue-tag">IEEE TSE 2025</span>
+                    </div>
+                </div>
+            </section>
 
-          <div class="row align-items-center section-item">
-            <div class="col-md-9 col-wrapper">
-              <div class="title">
-                <a href="https://www.cs.purdue.edu/news/articles/2025/purdue-cs-researchers-earn-best-paper-finalist-at-2025-ieee-icra.html" style="text-decoration: underline;">Purdue CS News (ICRA Best paper Award Finalist)</a>, <a href="https://cse.sustech.edu.cn/news/1364.html" style="text-decoration: underline;">SUSTech CS News (ACM Student Research)</a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+            <section id="press" class="section">
+                <h2 class="section-title">Press Coverage</h2>
+                <ol class="news-list">
+                    <li class="news-item"><span class="news-date">2025</span><p><a href="https://www.cs.purdue.edu/news/articles/2025/purdue-cs-researchers-earn-best-paper-finalist-at-2025-ieee-icra.html">Purdue CS News</a>: SELP named a Best Paper Award Finalist at ICRA 2025.</p></li>
+                    <li class="news-item"><span class="news-date">2020</span><p><a href="https://cse.sustech.edu.cn/news/1364.html">SUSTech CS News</a>: First place in the ACM Student Research Competition at ASE 2020.</p></li>
+                </ol>
+            </section>
+        </main>
 
-      <div class="sec-wrapper exp-wrapper" id="edu">
-        <div class="container-fluid">
-          <div class="row">
-            <div class="col col-wrapper">
-              <div class="section-title"><b class="bold" style="font-size: 23px;">Education</b></div>
-            </div>
-          </div>
-          <div class="row align-items-center section-item">
-            <div class="col-md-9 col-wrapper">
-              <div class="title">
-                <a href="https://www.purdue.edu/">Purdue University</a>
-              </div>
-              <div class="info">
-                <div>Ph.D. in Computer Science</a></div>
-                <div>Advisor: <a href="https://www.cs.purdue.edu/homes/lintan/">Prof. Lin Tan</a></div>
-                <div class="location">West Lafayette, USA</div>
-              </div>
-            </div>
-            <div class="col-md-3 col-wrapper">
-              <time>Aug. 2021 - Present</time>
-            </div>
-          </div>
-          <div class="row align-items-center section-item">
-            <div class="col-md-9 col-wrapper">
-              <div class="title">
-                <a href="https://www.sustech.edu.cn/en/">Southern University of Science and Technology</a>
-              </div>
-              <div class="info">
-                <div>B.E. in Computer Science</a></div>
-                <div>Advisor: <a href="http://www.shinhwei.com/">Prof. Shin Hwei Tan</a></div>
-                <div class="location">Shenzhen, China</div>
-              </div>
-            </div>
-            <div class="col-md-3 col-wrapper">
-              <time>Sep. 2017 - June 2021</time>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="sec-wrapper exp-wrapper" id="service">
-        <div class="container-fluid">
-          <div class="row">
-            <div class="col col-wrapper">
-              <div class="section-title"><b class="bold" style="font-size: 23px;">Service</b></div>
-            </div>
-          </div>
-          <div class="row align-items-center section-item">
-            <div class="col-md-9 col-wrapper">
-              <div class="title">
-                Reviewer, <a href="https://2026.ieee-icra.org/">IEEE International Conference on Robotics and Automation (ICRA)</a>
-              </div>
-            </div>
-            <div class="col-md-3 col-wrapper">
-              <time>2026</time>
-            </div>
-          </div>
-          <div class="row align-items-center section-item">
-            <div class="col-md-9 col-wrapper">
-              <div class="title">
-                Reviewer, <a href="https://ieeexplore.ieee.org/xpl/RecentIssue.jsp?punumber=32">IEEE Transactions on Software Engineering (TSE)</a>
-              </div>
-            </div>
-            <div class="col-md-3 col-wrapper">
-              <time>2025</time>
-            </div>
-          </div>
-        </div>
-      </div>
-
-
-
-
-        </div>
-      </div> -->
-
-
-
+        <footer class="site-footer">
+            © Yi Wu · Last updated Oct 2026
+        </footer>
     </div>
-
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Bootstrap JS -->
-    <script src="js/jquery-3.3.1.slim.min.js"></script>
-    <!-- Popper before Bootstrap -->
-    <script src="js/popper.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-
-    <script src="js/script.js"></script>
-  </body>
+</body>
 </html>
