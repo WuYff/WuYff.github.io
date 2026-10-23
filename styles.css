@@ -544,8 +544,9 @@ p {
 
 .news-item p {
     margin: 0;
-    font-size: 1.04rem;
-    line-height: 1.5;
+    color: var(--ink-soft);
+    font-size: 1rem;
+    line-height: 1.75;
 }
 
 /* Publications ------------------------------------------------------------ */
@@ -777,7 +778,8 @@ a.pub-badge:focus-visible {
 }
 
 .edu-content h3 {
-    font-size: 1.14rem;
+    font-size: 1rem;
+    line-height: 1.75;
 }
 
 .edu-content p {
@@ -975,12 +977,12 @@ a.pub-badge:focus-visible {
 
 .edu-role {
     color: var(--ink-soft);
-    font-size: 1.14rem;
+    font-size: 1rem;
     font-weight: 400;
 }
 
 .edu-content .edu-location {
     color: var(--ink-faint);
-    font-size: 0.95rem;
+    font-size: 1rem;
     opacity: 0.75;
 }
