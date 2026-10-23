@@ -19,9 +19,9 @@
     --accent: #d42a20;
     --accent-hover: #a91f17;
     --accent-wash: #fbe9e8;
-    --badge-ink: #111111;
-    --badge-bg: #f4f4f4;
-    --badge-border: #d9d9d9;
+    --badge-ink: #6b4500;
+    --badge-bg: #ffe9a8;
+    --badge-border: #e0b84a;
 }
 
 :root[data-theme="dark"] {
@@ -36,9 +36,9 @@
     --accent: #ff5a4e;
     --accent-hover: #ff8076;
     --accent-wash: #2a1312;
-    --badge-ink: #f2f2f2;
-    --badge-bg: #1b1b1b;
-    --badge-border: #333333;
+    --badge-ink: #f6d680;
+    --badge-bg: #3a2e12;
+    --badge-border: #8a6d2a;
 }
 
 .hero-name,
@@ -51,7 +51,8 @@
 .hero-name { font-size: clamp(3.2rem, 8.5vw, 5.4rem); line-height: 0.95; }
 .topbar-name { font-size: 1.1rem; letter-spacing: -0.04em; }
 .topbar-name::after { content: "."; color: var(--accent); }
-.hero-name::after { content: "."; color: var(--accent); }
+.hero-name-en::after { content: "."; color: var(--accent); }
+.hero-name-cn { margin-inline-start: 0.5rem; font-family: "PingFang SC", "Hiragino Sans GB", "Noto Sans SC", "Microsoft YaHei", sans-serif; }
 
 .hero-motto { display: none; }
 .hero-role { text-transform: uppercase; letter-spacing: 0.08em; font-size: 0.74rem; }
