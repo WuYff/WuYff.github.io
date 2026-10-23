@@ -968,3 +968,13 @@ a.pub-badge:focus-visible {
     clip: rect(0 0 0 0);
     white-space: nowrap;
 }
+
+.edu-content .edu-org {
+    display: inline;
+}
+
+.edu-role {
+    color: var(--ink-soft);
+    font-size: 1.14rem;
+    font-weight: 400;
+}
