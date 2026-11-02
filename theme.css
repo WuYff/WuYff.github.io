@@ -1,4 +1,4 @@
-/* Swiss — white space, one tight grotesk, numbered sections, a single red accent. */
+/* Swiss — white space, one tight grotesk, numbered sections, a single apricot-orange accent. */
 :root {
     --font-sans: "Inter Tight", -apple-system, "PingFang SC", sans-serif;
     --font-serif: "Inter Tight", -apple-system, "PingFang SC", sans-serif;
@@ -16,9 +16,9 @@
     --ink-faint: #6b6b6b;
     --rule: #e4e4e4;
     --rule-soft: #efefef;
-    --accent: #d42a20;
-    --accent-hover: #a91f17;
-    --accent-wash: #fbe9e8;
+    --accent: #b8530f;
+    --accent-hover: #94420a;
+    --accent-wash: #fdeee2;
     --badge-ink: #6b4500;
     --badge-bg: #ffe9a8;
     --badge-border: #e0b84a;
@@ -33,9 +33,9 @@
     --ink-faint: #8c8c8c;
     --rule: #262626;
     --rule-soft: #1b1b1b;
-    --accent: #ff5a4e;
-    --accent-hover: #ff8076;
-    --accent-wash: #2a1312;
+    --accent: #ffa86b;
+    --accent-hover: #ffc196;
+    --accent-wash: #2a1a10;
     --badge-ink: #f6d680;
     --badge-bg: #3a2e12;
     --badge-border: #8a6d2a;
