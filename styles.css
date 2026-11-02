@@ -986,3 +986,8 @@ a.pub-badge:focus-visible {
     font-size: 1rem;
     opacity: 0.75;
 }
+
+.edu-content .edu-focus {
+    color: var(--ink-faint);
+    font-size: 0.875rem;
+}
